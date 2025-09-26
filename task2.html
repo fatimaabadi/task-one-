@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task 2 - Debugging</title>
+</head>
+<body>
+  <button id="helloBtn">Click Me</button>
+
+  <script>
+    const btn = document.getElementById('helloBtn');
+
+    function sayHello() {
+      alert("Hello from Najahak!");
+      // disable button temporarily to prevent spam
+      btn.disabled = true;
+      setTimeout(() => {
+        btn.disabled = false;
+      }, 1000); // re-enable after 1 second
+    }
+
+    btn.addEventListener('click', sayHello);
+
+    // Example JSON output (could be sent to an app)
+    const output = {
+      message: "Hello from Najahak!",
+      timestamp: new Date().toISOString(),
+      buttonId: btn.id
+    };
+
+    console.log(JSON.stringify(output, null, 2));
+  </script>
+</body>
+</html>
